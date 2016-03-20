@@ -17,7 +17,7 @@ import {
 } from 'angular2/platform/worker_render'
 
 let appRef = platform([WORKER_RENDER_PLATFORM])
-.application([WORKER_RENDER_APP, new Provider(WORKER_SCRIPT, {useValue: "worker-loader.js"})]);
+.application([WORKER_RENDER_APP, new Provider(WORKER_SCRIPT, {useValue: "lib/worker-loader.js"})]);
 
 const messageBus:MessageBus = appRef.injector.get(MessageBus);
 
