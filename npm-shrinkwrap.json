@@ -416,6 +416,18 @@
         }
       }
     },
+    "concat-with-sourcemaps": {
+      "version": "1.0.4",
+      "from": "concat-with-sourcemaps@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/concat-with-sourcemaps/-/concat-with-sourcemaps-1.0.4.tgz",
+      "dependencies": {
+        "source-map": {
+          "version": "0.5.3",
+          "from": "source-map@>=0.5.1 <0.6.0",
+          "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.3.tgz"
+        }
+      }
+    },
     "connect": {
       "version": "3.4.1",
       "from": "connect@>=3.3.5 <4.0.0",
