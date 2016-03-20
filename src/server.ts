@@ -20,8 +20,6 @@ import {APP_BASE_HREF, ROUTER_PROVIDERS} from 'angular2/router';
 enableProdMode()
 
 import * as reducers from './reducers/index'
-var pokemonData = require('./data/pokemon.json')
-
 // import {SHARED_PROVIDERS} from './shared-providers';
 
 // Angular 2
@@ -42,6 +40,20 @@ app.set('view engine', 'html');
 
 // Routes
 app.use(express.static(root));
+// app.use('/', (req, res) => {
+//   res.render('index', { directives: [App], providers: [
+//     ROUTER_PROVIDERS,
+//     NODE_LOCATION_PROVIDERS,
+//     provide(REQUEST_URL, {useValue: req.originalUrl}),
+//     provide(APP_BASE_HREF, {useValue: `http://localhost:3000${req.baseUrl}`}),
+//     provide(REQUEST_URL, {useValue: 'http://localhost:3000'}),
+//     provideStore(reducers, {pokemon: pokemonData}),
+//     provide(UIEvents, {useValue: {}}),
+//     //provide(PLATFORM_PIPES, {useValue: [ServerAsyncPipe], multi: true})
+//   ] , preboot: false});
+// });
+
+
 
 if(process.env.PROD){
   var ssl = {
