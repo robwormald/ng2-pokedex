@@ -1,4 +1,4 @@
 importScripts(
-    './angular2-polyfills.js',
+    './angular2-polyfills.min.js',
     '../bundle/worker-app.js'
 );
