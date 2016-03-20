@@ -8,11 +8,11 @@ var ng2gulp = require('angular2-gulp-prerender');
 var inline = require('gulp-inline')
 var minifyCss = require('gulp-minify-css');
 
-gulp.task('prerender', ['build:ui','build:worker'], function(){
-  var app = require('../dist/app-shell/app');
-  var uiEvents = require('../dist/app-shell/services/uiEvents');
-  var reducers = require('../dist/reducers/index');
-  var pokeData = require('../dist/data/pokemon');
+gulp.task('prerender', ['bundle:ui','bundle:worker'], function(){
+  var app = require('../build/app-shell/app');
+  var uiEvents = require('../build/app-shell/services/uiEvents');
+  var reducers = require('../build/reducers/index');
+  var pokeData = require('../build/data/pokemon');
 
 
 

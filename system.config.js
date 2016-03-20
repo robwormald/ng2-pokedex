@@ -4,7 +4,7 @@ System.config({
     'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
     angular2: 'node_modules/angular2',
     rxjs: 'node_modules/rxjs',
-    app: 'dist',
+    app: 'build',
     'parse5': 'node_modules/parse5',
     '@ngrx/store': 'node_modules/@ngrx/store'
   },
