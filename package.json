@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run compile:es6",
-    "compile:es6": "tsc"
+    "compile:es6": "tsc",
+    "gotta-catch-em-all": "node ./dist/server",
+    "start": "npm run build && npm run gotta-catch-em-all"
   },
   "author": "",
   "license": "ISC",
