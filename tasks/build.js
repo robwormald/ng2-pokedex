@@ -5,14 +5,14 @@ gulp.task('build:ui', ['compile'], function() {
   var builder = new Builder();
   return builder.loadConfig('./system.config.js')
     .then(function() {
-      return builder.buildStatic('app/ui', 'dist/bundle/ui.js')
+      return builder.buildStatic('app/ui', 'dist/bundle/ui.js', {minify: true, mangle: false, rollup: true})
     })
 });
 gulp.task('build:worker', ['compile'], function() {
   var builder = new Builder();
   return builder.loadConfig('./system.config.js')
     .then(function() {
-      return builder.buildStatic('app/worker-app', 'dist/bundle/worker-app.js')
+      return builder.buildStatic('app/worker-app', 'dist/bundle/worker-app.js', {minify: true, mangle: false, rollup: true})
     })
 });
 
