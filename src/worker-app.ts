@@ -4,6 +4,7 @@ import {
   WORKER_APP_APPLICATION,
   MessageBus
 } from "angular2/platform/worker_app";
+import {data} from './data/pokemon'
 
 import {App} from "./app-shell/app";
 import {provideStore} from '@ngrx/store'
@@ -13,5 +14,5 @@ import {UIEvents} from './app-shell/services/uiEvents'
 enableProdMode()
 
 platform([WORKER_APP_PLATFORM])
-.application([WORKER_APP_APPLICATION, [provideStore(reducers), UIEvents]])
+.application([WORKER_APP_APPLICATION, [provideStore(reducers, {pokemon: data}), UIEvents]])
 .bootstrap(App);

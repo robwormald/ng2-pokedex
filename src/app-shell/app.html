@@ -9,12 +9,12 @@
 
     <div class="mui-textfield">
       <input id="monsters-search-bar" placeholder="Search for Pokémon" type="text"
-             spellcheck="false" autocorrect="off" autocomplete="off"/>
+             spellcheck="false" autocorrect="off" autocomplete="off" [ngFormControl]="searchInput"/>
     </div>
 
     <div id="monsters-list-wrapper">
-      <ul>
-        <li *ngFor="#monster of pokemon | async">{{monster.name}}</li>
+      <ul id="monsters-list">
+        <li *ngFor="#monster of pokemon | async; trackBy:pokemonName">{{monster.name}}</li>
       </ul>
       <div id="progress-mask"></div>
     </div>

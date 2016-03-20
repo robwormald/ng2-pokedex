@@ -8,7 +8,8 @@ require('./bundle');
 require('./sw');
 require('./inline');
 require('./clean');
+require('./prerender');
 
-gulp.task('make', ['build:ui','build:worker','deps:copy','inline:css']);
+gulp.task('make', ['build:ui','build:worker','deps:lib','prerender']);
 
 gulp.task('default',['generate-service-worker']);

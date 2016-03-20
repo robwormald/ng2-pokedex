@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-gulp.task('deps:copy', ['deps:images'], function(){
+gulp.task('deps:lib', ['deps:other', 'deps:data'], function(){
    return gulp.src([
        'node_modules/systemjs/dist/system.js',
        'node_modules/angular2/bundles/angular2-polyfills.min.js',
@@ -9,8 +9,13 @@ gulp.task('deps:copy', ['deps:images'], function(){
    ])
      .pipe(gulp.dest('dist/lib'))
 });
-gulp.task('deps:images', function(){
-  return gulp.src(['src/favicon.ico'])
+gulp.task('deps:other', function(){
+  return gulp.src(['src/favicon.ico','src/register-service-worker.js'])
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('deps:data', function(){
+  return gulp.src(['src/data/**'])
+    .pipe(gulp.dest('dist/data'));
 });
 
