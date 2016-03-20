@@ -5,7 +5,7 @@ WORK IN PROGRESS!
 
 ### What?
 
-Using Angular2 to build [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps?hl=en) using the [App Sheel Architecture](https://developers.google.com/web/updates/2015/11/app-shell?hl=en)
+Using Angular2 to build [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps?hl=en) using the [App Shell Architecture](https://developers.google.com/web/updates/2015/11/app-shell?hl=en)
 
 ### How?
 
