@@ -1,11 +1,12 @@
+import 'reflect-metadata'
 import * as path from 'path';
 import * as express from 'express';
 import {Observable} from 'rxjs/Rx';
 import {
-  SERVER_LOCATION_PROVIDERS,
-  ng2engine,
+  NODE_LOCATION_PROVIDERS,
+  expressEngine,
   REQUEST_URL
-} from 'angular2-universal-preview/dist/server';
+} from 'angular2-universal-preview';
 import {provideStore} from '@ngrx/store'
 
 
@@ -42,7 +43,7 @@ import {UIEvents} from './app-shell/services/uiEvents'
 let app = express();
 let root = path.join(path.resolve(__dirname, '../dist'));
 // Express View
-app.engine('.ng2.html', ng2engine);
+app.engine('.ng2.html', expressEngine);
 app.set('views', root);
 app.set('view engine', 'ng2.html');
 
@@ -52,9 +53,9 @@ app.use(express.static(root));
 
 // Routes
 app.use('/', (req, res) => {
-  res.render('index', { App, providers: [
+  res.render('index', { directives: [App], providers: [
     ROUTER_PROVIDERS,
-    SERVER_LOCATION_PROVIDERS,
+    NODE_LOCATION_PROVIDERS,
     provide(REQUEST_URL, {useValue: req.originalUrl}),
     provide(APP_BASE_HREF, {useValue: `http://localhost:3000${req.baseUrl}`}),
     provide(REQUEST_URL, {useValue: 'http://localhost:3000'}),
