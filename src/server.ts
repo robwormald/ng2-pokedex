@@ -1,3 +1,7 @@
+import * as http from 'http'
+import * as https from 'https'
+import * as fs from 'fs'
+
 import 'reflect-metadata'
 import * as path from 'path';
 import * as express from 'express';
@@ -65,7 +69,13 @@ app.use('/', (req, res) => {
   ] , preboot: false});
 });
 
-// Server
-app.listen(3000, () => {
-  console.log('Listen on http://localhost:3000');
-});
+if(process.env.PROD){
+  var ssl = {
+    key: fs.readFileSync('/etc/letsencrypt/live/pokedex.innit.io/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/pokedex.innit.io/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/pokedex.innit.io/chain.pem')
+  }
+  https.createServer(ssl, app).listen(process.env.PORT || 8443);
+}
+
+http.createServer(app).listen(process.env.PORT || 3000);
