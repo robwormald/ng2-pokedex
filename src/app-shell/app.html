@@ -1,0 +1,40 @@
+<header app-header id="header"></header>
+<side-drawer id="sidedrawer" class="mui--no-user-select" *ngIf="!showOverlay"></side-drawer>
+<div id="content-wrapper">
+  <div class="mui--appbar-height"></div>
+  <div class="mui-container-fluid">
+    <br>
+
+    <h1 id="main-title">{{config.appTitle}}</h1>
+
+    <div class="mui-textfield">
+      <input id="monsters-search-bar" placeholder="Search for Pokémon" type="text"
+             spellcheck="false" autocorrect="off" autocomplete="off"/>
+    </div>
+
+    <div id="monsters-list-wrapper">
+      <ul>
+        <li *ngFor="#monster of pokemon | async">{{monster.name}}</li>
+      </ul>
+      <div id="progress-mask"></div>
+    </div>
+  </div>
+</div>
+<footer id="footer">
+  <div class="mui-container-fluid">
+    <br/>
+    An <a href="https://github.com/nolanlawson/pokedex.org">open-source site</a>
+    by <a href="http://nolanlawson.com">Nolan Lawson</a>,
+    with help from <a href="http://pokeapi.co/">Pokéapi</a>.
+    <br/>
+    All content is &copy; Nintendo, Game Freak, and The Pokémon Company.
+  </div>
+</footer>
+<div id="detail-view-container" class="hidden" #detailview>
+  <div id="detail-view">
+    hellooooo world
+  </div>
+</div>
+<div id="mui-overlay" *ngIf="showOverlay" (click)="closeDrawer()">
+  <side-drawer id="sidedrawer"></side-drawer>
+</div>

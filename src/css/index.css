@@ -1,0 +1,1046 @@
+/* Styles go here */
+
+/**
+ * Body CSS
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #eee;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+
+/**
+ * Layout CSS
+ */
+
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  transition: transform 0.2s  ease-in-out;
+  will-change: transform;
+}
+
+#sidedrawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  left: 0;
+  transform: translate(-200px, 0);
+  overflow: auto;
+  z-index: 2;
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+#content-wrapper {
+  min-height: 100%;
+  overflow-x: hidden;
+  transform: translate(0, 0);
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+
+  /* sticky bottom */
+  margin-bottom: -160px;
+  padding-bottom: 160px;
+}
+
+#footer {
+  height: 160px;
+  font-size: 13px;
+  transform: translate(0, 0);
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  #header {
+    transform: translate(200px, 0);
+  }
+
+  #sidedrawer {
+    transform: translate(0, 0);
+  }
+
+  #content-wrapper {
+    margin-left: 200px;
+  }
+
+  #footer {
+    margin-left: 200px;
+  }
+
+  body.hide-sidedrawer #header {
+    transform: translate(0, 0);
+  }
+
+  body.hide-sidedrawer #sidedrawer {
+    transform: translate(-200px, 0);
+  }
+
+  body.hide-sidedrawer #content-wrapper {
+    margin-left: 0;
+  }
+
+  body.hide-sidedrawer #footer {
+    margin-left: 0;
+  }
+}
+
+
+/**
+ * Toggle Sidedrawer
+ */
+
+#sidedrawer.active {
+  transform: translate(0, 0);
+}
+
+
+/**
+ * Header CSS
+ */
+
+.sidedrawer-toggle {
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 20px;
+  margin-right: 10px;
+  width:32px;
+  height:32px;
+}
+
+.sidedrawer-toggle svg {
+  vertical-align: middle;
+  margin-left:-1px;
+}
+
+.sidedrawer-toggle:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/**
+ * Sidedrawer CSS
+ */
+
+#sidedrawer-brand {
+  padding-left: 20px;
+}
+
+#sidedrawer ul {
+  list-style: none;
+}
+
+#sidedrawer > ul {
+  padding-left: 0;
+}
+
+#sidedrawer > ul > li:first-child {
+  padding-top: 15px;
+}
+
+#sidedrawer strong {
+  display: block;
+  padding: 15px 22px;
+  cursor: pointer;
+}
+
+#sidedrawer strong:hover {
+  background-color: #E0E0E0;
+}
+
+#sidedrawer strong + ul > li {
+  padding: 6px 0;
+}
+
+
+/**
+ * Footer CSS
+ */
+
+#footer {
+  background-color: #F44336;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* custom theming for pokedex app */
+
+#sidedrawer a {
+  color: rgba(0,0,0,.87);
+  text-decoration: none;
+}
+
+#sidedrawer a:hover {
+  color: rgba(0,0,0,.87);
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  #main-title {
+    display: none;
+  }
+  .mui-textfield {
+    padding-top: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.mui-appbar {
+  background-color: #F44336;
+}
+
+/* Search box */
+
+.mui-textfield > input:focus, .mui-textfield > textarea:focus {
+  border-color: #F44336;
+  background-image: url(../svg/search-active.svg);
+}
+.mui-textfield > input {
+  background-image: url(../svg/search.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.mui-textfield > input::placeholder,
+.mui-textfield > textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#progress-mask {
+  z-index: 20000;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transition: opacity 0.1s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#progress-mask.shown {
+  opacity: 0.3;
+}
+
+/* monster list */
+
+#monsters-list-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+#monsters-list {
+  padding: 0;
+}
+
+#monsters-list > li {
+  margin: 10px;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  display: inline-flex;
+  list-style-type: none;
+  cursor: pointer;
+  z-index: 20000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+@media (max-width: 767px) {
+  #monsters-list li {
+    margin: 5px;
+  }
+}
+
+@media (max-width: 320px) {
+  #monsters-list > li {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (min-width: 992px) {
+  #monsters-list > li {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+#monsters-list .monster-sprite {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+}
+
+#monsters-list .monster-sprite:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+#monsters-list .monster-sprite > .mui-ripple-effect {
+  background-color: rgb(255, 255, 255);
+}
+
+#monsters-list button.monster-sprite:active,
+#monsters-list button.monster-sprite:focus {
+  background-color: initial;
+  /* remove orange outline in android */
+  outline: none;
+}
+
+.monster-sprite {
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 140px;
+  height: 140px;
+}
+
+@media (max-width: 320px) {
+  .monster-sprite {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (min-width: 992px) {
+  .monster-sprite {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+#monsters-list li span {
+  color: white;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+#detail-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  color: #333;
+}
+
+.detail-view-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  will-change: transform;
+}
+
+.detail-view-fg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3000;
+}
+
+.detail-back-button {
+  will-change: transform;
+}
+
+.detail-back-button.animating {
+  transition: transform 0.2s ease-in-out;
+}
+
+.back-button {
+  background: url(../svg/ic_arrow_back_36px.svg);
+  width: 36px;
+  height: 36px;
+  border: none;
+  margin: 10px 10px;
+}
+
+.back-button:focus {
+  outline: 0;
+}
+
+.mui-panel.detail-panel {
+  max-width: 600px;
+  margin: 58px auto 10px;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 10px;
+  right: 10px;
+  overflow-y: auto;
+  will-change: transform;
+}
+
+.detail-panel.animating {
+  transition: transform 0.33333s cubic-bezier(0,0,0.21,1);
+}
+
+.detail-panel-header {
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 24px;
+}
+
+.detail-panel-content {
+  padding: 15px;
+}
+
+.detail-sprite {
+  width: 140px;
+  height: 140px;
+  min-width: 140px;
+}
+
+@media (max-width: 320px) {
+  .detail-sprite {
+    width: 110px;
+    height: 110px;
+    min-width: 110px;
+  }
+}
+
+@media (min-width: 992px) {
+  .detail-sprite {
+    width: 160px;
+    height: 160px;
+    min-width: 160px;
+  }
+}
+
+.detail-header {
+  display: flex;
+}
+
+.detail-below-header {
+  margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+  .detail-below-header {
+    margin-top: 10px;
+  }
+}
+
+.detail-national-id {
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: right;
+  font-size: 30px;
+}
+
+@media (max-width: 767px) {
+  .detail-national-id {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .detail-national-id {
+    font-size: 14px;
+  }
+}
+
+.detail-infobox {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.detail-stats {
+  min-width: 200px;
+  max-width: 300px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+@media(max-width: 320px) {
+  .detail-stats {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detail-stats {
+    min-width: 150px;
+    max-width: 200px;
+  }
+}
+
+.detail-stats-row {
+  display: flex;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+.detail-stats-row span:nth-child(even) {
+  flex-basis: 0;
+  flex-grow: 2;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .detail-stats-row span:nth-child(even) {
+    flex-grow: 1;
+  }
+}
+
+.detail-stats-row span:nth-child(odd) {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.stat-bar {
+  position: relative;
+  background: #ededed;
+}
+
+.stat-bar-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  transform-origin: left;
+}
+
+.stat-bar-fg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200000;
+  margin-left: 2px;
+}
+
+.detail-types-and-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monster-sprite-facade {
+  will-change: transform;
+}
+
+
+.monster-sprite-facade.animating {
+  transition: transform 0.33333s cubic-bezier(0,0,0.21,1);
+}
+
+#detail-view-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.detail-view-bg {
+  transform-origin: 0 0;
+}
+
+.detail-view-bg.animating {
+  transition-property: transform;
+  transition-duration: 0.33333s;
+  transition-timing-function: cubic-bezier(0,0,0.21,1);
+}
+
+.monster-type {
+  color: white;
+  padding: 1px 4px 4px;
+  border-radius: 2px;
+  font-size: 16px;
+  font-variant: small-caps;
+  font-weight: 600;
+  margin-right: 5px;
+  padding: 1px 10px 5px;
+}
+
+@media (max-width: 320px) {
+  .monster-type {
+    font-size: 13px;
+    padding: 0 3px 2px;
+  }
+}
+
+.monster-description {
+  font-size: 14px;
+  margin: 0 20px 20px;
+}
+
+@media (max-width: 320px) {
+  .monster-description {
+    font-size: 12px;
+  }
+}
+
+/* miscellaneous */
+
+.hidden {
+  display: none;
+}
+
+.hover-shadow {
+  border-radius: 50%;
+  padding: 4px 5px;
+}
+
+.monster-sprite-facade {
+  position:absolute;
+  z-index: 99999990; /* less than the mui modal, which is 99999999 */
+}
+
+/* evolutions */
+
+.detail-subheader {
+  font-size: 20px;
+  color: #fff;
+  padding-left: 10px;
+  margin: 20px 0 20px;
+}
+
+.evolutions {
+  margin: 0 20px;
+}
+
+.evolution-row-inner {
+  display: flex;
+  flex-diration: horizontal;
+  align-items: center;
+  justify-items: center;
+}
+
+.evolution-row .evolution-sprite {
+  flex-grow: 1;
+}
+
+.evolution-row svg {
+  flex-shrink: 1;
+  flex-basis: 25%;
+}
+
+.evolution-label {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.evolution-label span {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.arrow-right {
+  width: 48px;
+  height: 48px;
+}
+
+/* toast */
+
+.toast {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  will-change: opacity;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  display: flex;
+}
+
+.toast button.mui-btn {
+  margin: 6px 12px;
+}
+
+.toast button.mui-btn:active {
+  background-color: #ededed;
+}
+
+.toast span {
+  flex-grow: 1;
+}
+.toast div {
+  flex-grow: 1;
+}
+
+.pokedex-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.pokedex-modal.animating {
+  transition: 0.33333s transform cubic-bezier(0,0,0.21,1);
+}
+
+.pokedex-modal-inner {
+  max-width: 400px;
+  margin: 0 20px;
+}
+
+.pokedex-modal-inner.mui-panel {
+  margin: 0 20px;
+  padding: 0;
+}
+
+.pokedex-modal-inner h2 {
+  font-size: 18px;
+  margin: 0;
+  background: #F44336;
+  color: white;
+  padding: 10px 16px;
+}
+
+.pokedex-modal-content {
+  font-size: 15px;
+  margin: 25px 20px;
+}
+
+.pokedex-modal-inner button {
+  float: right;
+}
+
+/* hamburger needs more padding */
+.sidedrawer-toggle.hover-shadow {
+  padding: 4px 7px 5px 8px;
+}
+
+.hover-shadow:active, .hover-shadow:focus, .hover-shadow:hover {
+  background-color: rgba(0,0,0,.27);
+}
+
+.monster-species {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 20px 10px;
+}
+
+/* minutia */
+
+.monster-minutia {
+  display: flex;
+  margin: 0 20px 10px;
+}
+
+.monster-minutia > strong {
+  flex-basis: 20%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-right: 3px;
+  font-size: 14px;
+}
+
+.monster-minutia > span {
+  flex-basis: 30%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0 2px;
+}
+
+@media (max-width: 320px) {
+  .monster-minutia > strong {
+    font-size: 12px;
+  }
+  .monster-minutia > span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .monster-minutia > strong {
+    font-size: 13px;
+  }
+  .monster-minutia > span {
+    font-size: 13px;
+  }
+}
+
+/* spinner */
+
+/* modified from http://codepen.io/mrrocks/pen/EiplA */
+.spinner {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  will-change: opacity;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 5px;
+}
+
+.shown .spinner {
+  animation: rotator 2.8s linear infinite;
+}
+
+.spinner.big-spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  opacity: 1;
+}
+
+.big-spinner-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.5s;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.big-spinner-holder.shown {
+  opacity: 1;
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); stroke: #F44336;}
+  12.5% { transform: rotate(90deg); stroke: #F44336;}
+  25% { transform: rotate(180deg); stroke: #78C850;}
+  37.5% { transform: rotate(270deg); stroke: #78C850;}
+  50% { transform: rotate(360deg); stroke: #78C850;}
+  62.5% { transform: rotate(450deg); stroke: #78C850;}
+  75% { transform: rotate(540deg); stroke: #F44336;}
+  87.5% { transform: rotate(630deg); stroke: #F44336;}
+  100% { transform: rotate(720deg); stroke: #F44336;}
+}
+
+.spinner-path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 93;
+  transform-origin: center;
+}
+
+/* damage when attacked */
+
+.when-attacked {
+  margin: 10px 20px;
+}
+
+.when-attacked-row {
+  display: flex;
+  align-items: center;
+}
+
+.when-attacked-row > span:nth-child(odd) {
+  flex-basis: 35%;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.when-attacked-row > span:nth-child(even) {
+  flex-basis: 15%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding-left: 5px;
+}
+
+@media (max-width: 320px) {
+  .when-attacked-row > span:nth-child(odd) {
+    font-size: 12px;
+  }
+
+  .when-attacked-row > span:nth-child(even) {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  .when-attacked-row > span:nth-child(odd) {
+    flex-basis: 25%;
+  }
+
+  .when-attacked-row > span:nth-child(even) {
+    flex-basis: 25%;
+  }
+}
+
+/* moves */
+
+
+.monster-moves {
+  padding: 0 20px;
+}
+
+.moves-row {
+  margin: 2px 0;
+}
+
+.moves-inner-row {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.moves-row-detail {
+  margin: 10px 20px;
+  background: #fafafa;
+  padding: 10px;
+  will-change: transform;
+}
+
+.moves-row-detail.animating {
+  transition: transform 0.2s ease-in-out;
+  transform-origin: center 0;
+}
+
+.moves-row-stats {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 10px;
+}
+
+.moves-row-stats span {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.moves-inner-row > span:first-child {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 10%;
+}
+
+.moves-inner-row > span:nth-child(2) {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 40%;
+}
+
+.moves-inner-row > span:nth-child(3) {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 30%;
+}
+
+.moves-inner-row > span:nth-child(4) {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 20%;
+}
+
+@media (min-width: 768px) {
+  .moves-inner-row > span:first-child {
+    flex-basis: 15%;
+  }
+
+  .moves-inner-row > span:nth-child(2) {
+    flex-basis: 50%;
+  }
+
+  .moves-inner-row > span:nth-child(3) {
+    flex-basis: 20%;
+  }
+
+  .moves-inner-row > span:nth-child(4) {
+    flex-basis: 15%;
+  }
+}
+
+.dropdown-button {
+  position: relative;
+  width: 36px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+button.dropdown-button:focus {
+  outline: none; /* remove blue outline on webkit/blink */
+}
+
+.dropdown-button-image {
+  background-image: url(../svg/ic_keyboard_arrow_right_48px.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.dropdown-button-image.animating {
+  transition: transform 0.2s linear;
+}
+
+button.dropdown-button:active,
+button.dropdown-button:focus {
+  background-color: white;
+  /* remove orange outline in android */
+  outline: none;
+}
+
+button.dropdown-button:hover {
+  background-color: #fafafa;
+}

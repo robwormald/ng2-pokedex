@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "outDir": "build",
+        "rootDir": "src"
+    },
+    "files": [
+        "typings/browser.d.ts",
+        "src/ui.ts",
+        "src/worker-app.ts"
+    ]
+}
